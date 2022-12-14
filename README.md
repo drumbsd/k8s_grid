@@ -17,3 +17,4 @@ Example:
 
 Example output:
 
+![Screenshot](https://user-images.githubusercontent.com/6428880/207646275-40f64b6f-84bf-430c-94b3-cf3d0da0b384.png)
