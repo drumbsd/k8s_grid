@@ -45,7 +45,10 @@ for node in ret.items:
          elif (pod.status.phase == "Succeeded"):
             counter_succeeded += 1
 
-    print("%s\t%s\t%s\t%s\t%s\t%s\t%s" % (colored(node.metadata.name, 'blue'), node.metadata.labels["nodegroup"]," Running: "+colored(str(counter_running),'green')," Failed: "+colored(str(counter_failed),'red')," Pending: "+colored(str(counter_pending),'yellow')," Succeeded: "+colored(str(counter_succeeded),'cyan')," Total: "+colored(str(counter),'white')))
+    try:
+        print("%s\t%s\t%s\t%s\t%s\t%s\t%s" % (colored(node.metadata.name, 'blue'), node.metadata.labels["nodegroup"] , " Running: "+colored(str(counter_running),'green')," Failed: "+colored(str(counter_failed),'red')," Pending: "+colored(str(counter_pending),'yellow')," Succeeded: "+colored(str(counter_succeeded),'cyan')," Total: "+colored(str(counter),'white')))
+    except KeyError:
+        print("%s\t%s\t%s\t%s\t%s\t%s" % (colored(node.metadata.name, 'blue'), " Running: "+colored(str(counter_running),'green')," Failed: "+colored(str(counter_failed),'red')," Pending: "+colored(str(counter_pending),'yellow')," Succeeded: "+colored(str(counter_succeeded),'cyan')," Total: "+colored(str(counter),'white')))        
 
 print("")
 print("Unschedulable nodes:")
